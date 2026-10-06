@@ -75,6 +75,12 @@ GitHub Actions builds the Docker image, scans it with Trivy, and pushes to GHCR.
 
 ![CI Job Details](docs/screenshots/ci-job-details.png)
 
+### ArgoCD GitOps
+
+ArgoCD syncs the Kubernetes manifests from GitHub to the K3s cluster automatically on every push.
+
+![ArgoCD Dashboard](docs/screenshots/argocd-dashboard.png)
+
 ### Infrastructure
 
 - **Cloud:** AWS (us-east-1)
@@ -83,3 +89,24 @@ GitHub Actions builds the Docker image, scans it with Trivy, and pushes to GHCR.
 - **CI/CD:** GitHub Actions + ArgoCD GitOps
 - **IaC:** Terraform
 - **Access:** Cloudflare Tunnel
+
+### Cost Effectiveness
+
+This entire production-grade infrastructure costs approximately **$7 for 3 days** of deployment:
+
+| Component | Details |
+|-----------|---------|
+| Compute | 4x t4g.small ARM64 Graviton instances (2x K3s, 2x DB) |
+| Network | 1x NAT Gateway (fck-nat, self-managed to save cost) |
+| Storage | S3 backup bucket with lifecycle rules |
+| Database | PostgreSQL 14 + Redis (self-hosted, no RDS cost) |
+| CI/CD | GitHub Actions (free tier) + ArgoCD (self-hosted) |
+
+**Cost-saving decisions:**
+- ARM64 Graviton instances are ~20% cheaper than x86 equivalents
+- Self-managed NAT (fck-nat) instead of AWS NAT Gateway saves ~$30/month
+- K3s instead of EKS saves ~$70/month in control plane fees
+- Self-hosted PostgreSQL/Redis instead of RDS saves ~$25/month
+- Cloudflare Tunnel for public access (free, no load balancer cost)
+
+Total estimated monthly cost if left running 24/7: **~$70/month**
