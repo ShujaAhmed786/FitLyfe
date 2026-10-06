@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fitlyfe-api
@@ -94,8 +94,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  # TODO: replace with your real domain (Cloudflare DNS -> tunnel)
-  - host: api.fitlyfe.example.com
+  # Cloudflare quick tunnel URL (changes on pod restart)
+  - host: solving-likewise-worker-bristol.trycloudflare.com
     http:
       paths:
       - path: /
