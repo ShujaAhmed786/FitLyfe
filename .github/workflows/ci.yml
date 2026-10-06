@@ -1,4 +1,4 @@
-name: CI
+﻿name: CI
 
 on:
   push:
@@ -32,8 +32,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Build image
-        run: docker build -t $IMAGE:${{ github.sha }} -t $IMAGE:latest .
+        run: docker build --platform linux/arm64 -t $IMAGE:${{ github.sha }} -t $IMAGE:latest .
 
       - name: Trivy vulnerability scan
         uses: aquasecurity/trivy-action@master
