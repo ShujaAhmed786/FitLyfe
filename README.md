@@ -89,3 +89,26 @@ ArgoCD syncs the Kubernetes manifests from GitHub to the K3s cluster automatical
 - **CI/CD:** GitHub Actions + ArgoCD GitOps
 - **IaC:** Terraform
 - **Access:** Cloudflare Tunnel
+
+### Cost Breakdown
+
+Monthly cost comparison (us-east-1, 730 hours/month):
+
+| Cost Line Item | Right-Sized On-Demand |
+|----------------|----------------------|
+| K3s Cluster Compute | 2x t4g.small : $16.35 |
+| DB / Cache Compute | 2x t4g.small : $16.35 |
+| Egress NAT Compute | 1x t4g.nano (fck-nat) : $3.07 |
+| Public IPv4 Allocation | 1x Elastic IP : $3.65 |
+| EBS Disks (gp3) | 5x 15GB (75GB) : $6.00 |
+| AWS S3 Backups | pgBackRest + Valkey : ~- **Access:** Cloudflare Tunnel.50 |
+| Cloudflare Ingress | Zero-Trust Tunnel : - **Access:** Cloudflare Tunnel.00 |
+| CI Runner Compute | GitHub Actions Free Tier : - **Access:** Cloudflare Tunnel.00 |
+| **Total Monthly Spend** | **~$45.92 / mo** |
+
+**Cost-saving decisions:**
+- ARM64 Graviton (t4g) instances instead of x86
+- fck-nat (self-managed) instead of AWS NAT Gateway
+- K3s instead of EKS (no control plane fee)
+- Self-hosted PostgreSQL/Redis instead of RDS
+- Cloudflare Tunnel instead of AWS Load Balancer
