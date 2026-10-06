@@ -112,3 +112,116 @@ Monthly cost comparison (us-east-1, 730 hours/month):
 - K3s instead of EKS (no control plane fee)
 - Self-hosted PostgreSQL/Redis instead of RDS
 - Cloudflare Tunnel instead of AWS Load Balancer
+
+---
+
+## Running in Production
+
+### Prerequisites
+
+- AWS account with IAM credentials
+- Terraform >= 1.0
+- kubectl
+- GitHub account (for CI/CD)
+
+### 1. Provision Infrastructure
+
+```bash
+cd infra/terraform
+terraform init
+terraform apply
+```
+
+This creates:
+- VPC with public/private subnets across 2 AZs
+- 2x K3s nodes (t4g.small, ARM64)
+- 2x Database nodes (t4g.small, PostgreSQL + Redis)
+- NAT instance (fck-nat)
+- S3 backup bucket
+- Security groups and IAM roles
+
+### 2. Configure Database
+
+SSH into the primary DB node and run:
+
+```bash
+sudo -u postgres psql
+CREATE USER fitlyfe WITH PASSWORD 'your-secure-password';
+CREATE DATABASE fitlyfe OWNER fitlyfe;
+```
+
+Update `postgresql.conf`:
+```
+listen_addresses = 'your-db-private-ip'
+```
+
+Add to `pg_hba.conf`:
+```
+host all all 10.0.0.0/16 md5
+```
+
+Restart PostgreSQL:
+```bash
+sudo systemctl restart postgresql
+```
+
+### 3. Create Kubernetes Secret
+
+```bash
+kubectl create namespace fitlyfe
+kubectl create secret generic fitlyfe-db -n fitlyfe \
+  --from-literal=host=10.0.11.20 \
+  --from-literal=port=5432 \
+  --from-literal=database=fitlyfe \
+  --from-literal=username=fitlyfe \
+  --from-literal=password='your-secure-password'
+```
+
+### 4. Install ArgoCD
+
+```bash
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+### 5. Deploy via ArgoCD
+
+Apply the ArgoCD application manifest:
+
+```bash
+kubectl apply -f argocd/app.yaml
+```
+
+ArgoCD will automatically sync the Kubernetes manifests from the `k8s/` directory.
+
+### 6. CI/CD Pipeline
+
+Push to `main` branch to trigger GitHub Actions:
+1. Builds ARM64 Docker image
+2. Scans with Trivy for vulnerabilities
+3. Pushes to GitHub Container Registry
+4. ArgoCD detects new image and deploys
+
+### 7. Expose via Cloudflare Tunnel
+
+```bash
+kubectl apply -f k8s/cloudflared.yaml
+```
+
+This creates a secure tunnel for public access without a load balancer.
+
+### Architecture Summary
+
+```
+GitHub â†’ Actions (build/scan/push) â†’ GHCR
+   â†“
+ArgoCD â†’ K3s Cluster (2 AZs)
+   â†“
+ingress-nginx â†’ Cloudflare Tunnel â†’ Internet
+   â†“
+PostgreSQL + Redis (2 nodes, S3 backups)
+```
+
+### Cost
+
+~$46/month on AWS (see Cost Breakdown section above).
