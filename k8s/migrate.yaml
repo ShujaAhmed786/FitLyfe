@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fitlyfe-migrations
+  namespace: fitlyfe
+data:
+  001_init.sql: |
+    -- FitLyfe initial schema (PostgreSQL)
+    CREATE TABLE IF NOT EXISTS app_feedback (
+      id SERIAL PRIMARY KEY,
+      feedback_text TEXT NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fitlyfe-db-migrate
+  namespace: fitlyfe
+spec:
+  # One active migration at a time; old ones are cleaned up.
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: migrate
+        image: postgres:16-alpine
+        command:
+        - sh
+        - -c
+        - |
+          export PGHOST="$DB_HOST" PGPORT="$DB_PORT" PGUSER="$DB_USER" \
+                 PGPASSWORD="$DB_PASSWORD" PGDATABASE="$DB_NAME"
+          psql -v ON_ERROR_STOP=1 -f /migrations/001_init.sql
+        env:
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: host
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: port
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: password
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: database
+        volumeMounts:
+        - name: migrations
+          mountPath: /migrations
+      volumes:
+      - name: migrations
+        configMap:
+          name: fitlyfe-migrations

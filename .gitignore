@@ -116,3 +116,8 @@ Thumbs.db
 .atom/
 .history
 .svn/
+
+# backend
+back-end/node_modules
+.env
+back-end/.env

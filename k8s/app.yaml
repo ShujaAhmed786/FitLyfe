@@ -1,0 +1,107 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitlyfe-api
+  namespace: fitlyfe
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: fitlyfe-api
+  template:
+    metadata:
+      labels:
+        app: fitlyfe-api
+    spec:
+      containers:
+      - name: api
+        # Image is retagged by the CD step on every release.
+        image: ghcr.io/shujaahmed786/fitlyfe-api:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: host
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: port
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: password
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: fitlyfe-db
+              key: database
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 15
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 15
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fitlyfe-api
+  namespace: fitlyfe
+spec:
+  type: ClusterIP
+  selector:
+    app: fitlyfe-api
+  ports:
+  - port: 80
+    targetPort: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fitlyfe-api
+  namespace: fitlyfe
+  annotations:
+    # Traefik/Cloudflare Tunnel terminates TLS at the edge;
+    # ingress-nginx serves plain HTTP inside the cluster.
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: nginx
+  rules:
+  # TODO: replace with your real domain (Cloudflare DNS -> tunnel)
+  - host: api.fitlyfe.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: fitlyfe-api
+            port:
+              number: 80
