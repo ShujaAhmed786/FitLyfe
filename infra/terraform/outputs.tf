@@ -39,22 +39,32 @@ output "ssh_nat" {
   value       = "ssh -i fitlyfe-key ec2-user@${aws_eip.nat.public_ip}"
 }
 
+output "bastion_public_ip" {
+  description = "Public IP of the bastion host"
+  value       = aws_instance.bastion.public_ip
+}
+
+output "ssh_bastion" {
+  description = "SSH to the bastion host (reliable jump host)"
+  value       = "ssh -i fitlyfe-key ubuntu@${aws_instance.bastion.public_ip}"
+}
+
 output "ssh_k3s_a" {
   description = "SSH to K3s node A via the jump host"
-  value       = "ssh -i fitlyfe-key -J ec2-user@${aws_eip.nat.public_ip} ubuntu@${aws_instance.k3s_a.private_ip}"
+  value       = "ssh -i fitlyfe-key -J ubuntu@${aws_instance.bastion.public_ip} ubuntu@${aws_instance.k3s_a.private_ip}"
 }
 
 output "ssh_k3s_b" {
   description = "SSH to K3s node B via the jump host"
-  value       = "ssh -i fitlyfe-key -J ec2-user@${aws_eip.nat.public_ip} ubuntu@${aws_instance.k3s_b.private_ip}"
+  value       = "ssh -i fitlyfe-key -J ubuntu@${aws_instance.bastion.public_ip} ubuntu@${aws_instance.k3s_b.private_ip}"
 }
 
 output "ssh_db_a" {
   description = "SSH to Postgres/Valkey node A via the jump host"
-  value       = "ssh -i fitlyfe-key -J ec2-user@${aws_eip.nat.public_ip} ubuntu@${aws_instance.db_a.private_ip}"
+  value       = "ssh -i fitlyfe-key -J ubuntu@${aws_instance.bastion.public_ip} ubuntu@${aws_instance.db_a.private_ip}"
 }
 
 output "ssh_db_b" {
   description = "SSH to Postgres/Valkey node B via the jump host"
-  value       = "ssh -i fitlyfe-key -J ec2-user@${aws_eip.nat.public_ip} ubuntu@${aws_instance.db_b.private_ip}"
+  value       = "ssh -i fitlyfe-key -J ubuntu@${aws_instance.bastion.public_ip} ubuntu@${aws_instance.db_b.private_ip}"
 }

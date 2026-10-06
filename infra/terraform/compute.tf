@@ -29,7 +29,7 @@ resource "aws_instance" "k3s_a" {
   instance_type          = var.k3s_instance_type
   subnet_id              = aws_subnet.private_a.id
   vpc_security_group_ids = [aws_security_group.k3s.id]
-  key_name               = var.key_name
+  key_name               = aws_key_pair.main.key_name
 
   root_block_device {
     volume_size = var.root_volume_size
@@ -59,7 +59,7 @@ resource "aws_instance" "k3s_b" {
   instance_type          = var.k3s_instance_type
   subnet_id              = aws_subnet.private_b.id
   vpc_security_group_ids = [aws_security_group.k3s.id]
-  key_name               = var.key_name
+  key_name               = aws_key_pair.main.key_name
 
   root_block_device {
     volume_size = var.root_volume_size
@@ -112,7 +112,7 @@ resource "aws_instance" "db_a" {
   instance_type          = var.db_instance_type
   subnet_id              = aws_subnet.private_a.id
   vpc_security_group_ids = [aws_security_group.db.id]
-  key_name               = var.key_name
+  key_name               = aws_key_pair.main.key_name
 
   root_block_device {
     volume_size = var.root_volume_size
@@ -141,7 +141,7 @@ resource "aws_instance" "db_b" {
   instance_type          = var.db_instance_type
   subnet_id              = aws_subnet.private_b.id
   vpc_security_group_ids = [aws_security_group.db.id]
-  key_name               = var.key_name
+  key_name               = aws_key_pair.main.key_name
 
   root_block_device {
     volume_size = var.root_volume_size

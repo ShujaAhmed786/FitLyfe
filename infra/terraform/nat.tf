@@ -40,7 +40,7 @@ resource "aws_eip_association" "nat" {
 resource "aws_instance" "nat" {
   ami           = data.aws_ami.fck_nat.id
   instance_type = var.nat_instance_type
-  key_name      = var.key_name
+  key_name      = aws_key_pair.main.key_name
 
   network_interface {
     network_interface_id = aws_network_interface.nat.id
