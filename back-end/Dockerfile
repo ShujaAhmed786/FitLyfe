@@ -1,6 +1,7 @@
 # Build stage: install production dependencies
 FROM node:20-alpine AS build
 WORKDIR /app
+RUN apk update && apk upgrade --no-cache
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 COPY server.js ./
@@ -8,7 +9,8 @@ COPY server.js ./
 # Runtime stage: minimal image, non-root user
 FROM node:20-alpine
 WORKDIR /app
-RUN addgroup -S app && adduser -S app -G app
+RUN apk update && apk upgrade --no-cache && \
+    addgroup -S app && adduser -S app -G app
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/package.json /app/server.js ./
 USER app
