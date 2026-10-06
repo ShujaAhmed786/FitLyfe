@@ -1,4 +1,4 @@
-# Fit Lyfe | Smart Calorie & Nutrition Tracker 🥗📊
+﻿# Fit Lyfe | Smart Calorie & Nutrition Tracker ðŸ¥—ðŸ“Š
 
 **Fit Lyfe** is a feature-rich, privacy-focused mobile application built with **Flutter** designed to make calorie tracking, meal planning, and health monitoring effortless, engaging, and lightning-fast. 
 
@@ -46,8 +46,40 @@ To run this project locally, make sure you have the [Flutter SDK](https://docs.f
      To generate an optimized Android App Bundle (.aab) for testing or deployment:
      flutter build appbundle --dart-define=USDA_API_KEY=your_actual_api_key_here
 
+---
 
-   
-  
+## DevOps Deployment
 
+This project is deployed on AWS with a full CI/CD pipeline.
 
+### Architecture
+
+![FitLyfe Deployment Flow](docs/screenshots/fitlyfe-deployment-flow.png)
+
+### App Screenshots
+
+### Add Meal
+![Add Meal](docs/screenshots/02-add-meal-enhanced.jpg)
+
+### My Meals
+![My Meals](docs/screenshots/03-meals-list-enhanced.jpg)
+
+### Activity Logs
+![Activity Logs](docs/screenshots/04-activity-logs-enhanced.jpg)
+
+### CI/CD Pipeline
+
+GitHub Actions builds the Docker image, scans it with Trivy, and pushes to GHCR. ArgoCD syncs the manifests to the K3s cluster.
+
+![CI Runs](docs/screenshots/ci-runs-list.png)
+
+![CI Job Details](docs/screenshots/ci-job-details.png)
+
+### Infrastructure
+
+- **Cloud:** AWS (us-east-1)
+- **Kubernetes:** K3s on EC2 (ARM64 Graviton)
+- **Database:** PostgreSQL 14 + Redis
+- **CI/CD:** GitHub Actions + ArgoCD GitOps
+- **IaC:** Terraform
+- **Access:** Cloudflare Tunnel
