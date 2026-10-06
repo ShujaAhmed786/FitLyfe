@@ -30,9 +30,15 @@ output "backup_bucket" {
 
 # ---------------------------------------------------------------------------
 # SSH access. Nodes sit in private subnets, so connections hop through the
-# fck-nat instance (which doubles as the jump host). Run these from the
-# infra/terraform directory so -i fitlyfe-key resolves.
+# bastion host. Run these from the infra/terraform directory so -i fitlyfe-key
+# resolves.
 # ---------------------------------------------------------------------------
+
+output "grafana_admin_password" {
+  description = "Grafana admin password (monitoring stack)"
+  value       = random_password.grafana_admin.result
+  sensitive   = true
+}
 
 output "ssh_nat" {
   description = "SSH directly to the NAT/jump host"

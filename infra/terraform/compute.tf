@@ -23,6 +23,12 @@ resource "random_password" "k3s_token" {
   special = false
 }
 
+# Grafana admin password for the monitoring stack
+resource "random_password" "grafana_admin" {
+  length  = 20
+  special = false
+}
+
 # --- K3s node A (AZ-A): cluster init ---------------------------------------
 resource "aws_instance" "k3s_a" {
   ami                    = data.aws_ami.ubuntu.id
@@ -48,6 +54,40 @@ resource "aws_instance" "k3s_a" {
     mkdir -p /home/ubuntu/.kube
     cp /etc/rancher/k3s/k3s.yaml /home/ubuntu/.kube/config
     chown -R ubuntu:ubuntu /home/ubuntu/.kube
+    export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+
+    # Wait for the K3s API to answer
+    for i in $(seq 1 60); do
+      kubectl get nodes >/dev/null 2>&1 && break
+      sleep 10
+    done
+
+    # Helm
+    curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+    # ingress-nginx (replaces the disabled Traefik)
+    helm upgrade --install ingress-nginx ingress-nginx \
+      --repo https://kubernetes.github.io/ingress-nginx \
+      --namespace ingress-nginx --create-namespace \
+      --set controller.service.type=ClusterIP \
+      --wait --timeout 10m
+
+    # ArgoCD
+    helm upgrade --install argocd argo-cd \
+      --repo https://argoproj.github.io/argo-helm \
+      --namespace argocd --create-namespace \
+      --set server.service.type=ClusterIP \
+      --wait --timeout 10m
+
+    # Monitoring: Prometheus + Grafana
+    helm upgrade --install monitoring kube-prometheus-stack \
+      --repo https://prometheus-community.github.io/helm-charts \
+      --namespace monitoring --create-namespace \
+      --set prometheus.prometheusSpec.retention=7d \
+      --set prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage=10Gi \
+      --set grafana.adminPassword='${random_password.grafana_admin.result}' \
+      --set grafana.service.type=ClusterIP \
+      --wait --timeout 15m
   EOF
 
   tags = { Name = "${var.project}-k3s-a" }
