@@ -59,13 +59,13 @@ This project is deployed on AWS with a full CI/CD pipeline.
 ### App Screenshots
 
 ### Add Meal
-![Add Meal](docs/screenshots/02-add-meal-enhanced.jpg)
+<img src="docs/screenshots/02-add-meal-enhanced.jpg" width="300" alt="Add Meal">
 
 ### My Meals
-![My Meals](docs/screenshots/03-meals-list-enhanced.jpg)
+<img src="docs/screenshots/03-meals-list-enhanced.jpg" width="300" alt="My Meals">
 
 ### Activity Logs
-![Activity Logs](docs/screenshots/04-activity-logs-enhanced.jpg)
+<img src="docs/screenshots/04-activity-logs-enhanced.jpg" width="300" alt="Activity Logs">
 
 ### CI/CD Pipeline
 
