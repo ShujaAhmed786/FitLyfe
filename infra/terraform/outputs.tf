@@ -1,5 +1,5 @@
 output "nat_public_ip" {
-  description = "Public IP of the fck-nat instance (egress IP)"
+  description = "Public IP of the fck-nat instance (egress IP, also SSH jump host)"
   value       = aws_eip.nat.public_ip
 }
 
@@ -28,7 +28,33 @@ output "backup_bucket" {
   value       = aws_s3_bucket.backups.id
 }
 
-output "ssh_command_k3s_a" {
-  description = "SSH into K3s node A via the NAT/bastion path (use SSM or VPN; example assumes direct routing)"
-  value       = "ssh -i <key.pem> ubuntu@${aws_instance.k3s_a.private_ip}"
+# ---------------------------------------------------------------------------
+# SSH access. Nodes sit in private subnets, so connections hop through the
+# fck-nat instance (which doubles as the jump host). Run these from the
+# infra/terraform directory so -i fitlyfe-key resolves.
+# ---------------------------------------------------------------------------
+
+output "ssh_nat" {
+  description = "SSH directly to the NAT/jump host"
+  value       = "ssh -i fitlyfe-key ec2-user@${aws_eip.nat.public_ip}"
+}
+
+output "ssh_k3s_a" {
+  description = "SSH to K3s node A via the jump host"
+  value       = "ssh -i fitlyfe-key -J ec2-user@${aws_eip.nat.public_ip} ubuntu@${aws_instance.k3s_a.private_ip}"
+}
+
+output "ssh_k3s_b" {
+  description = "SSH to K3s node B via the jump host"
+  value       = "ssh -i fitlyfe-key -J ec2-user@${aws_eip.nat.public_ip} ubuntu@${aws_instance.k3s_b.private_ip}"
+}
+
+output "ssh_db_a" {
+  description = "SSH to Postgres/Valkey node A via the jump host"
+  value       = "ssh -i fitlyfe-key -J ec2-user@${aws_eip.nat.public_ip} ubuntu@${aws_instance.db_a.private_ip}"
+}
+
+output "ssh_db_b" {
+  description = "SSH to Postgres/Valkey node B via the jump host"
+  value       = "ssh -i fitlyfe-key -J ec2-user@${aws_eip.nat.public_ip} ubuntu@${aws_instance.db_b.private_ip}"
 }

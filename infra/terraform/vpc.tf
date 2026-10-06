@@ -82,10 +82,11 @@ resource "aws_route_table_association" "private_b" {
 # Security groups
 # ---------------------------------------------------------------------------
 
-# fck-nat: allow everything from inside the VPC, full egress
+# fck-nat: allow everything from inside the VPC, full egress.
+# Also doubles as the SSH jump host for the private nodes.
 resource "aws_security_group" "nat" {
   name        = "${var.project}-nat-sg"
-  description = "fck-nat egress"
+  description = "fck-nat egress + SSH jump host"
   vpc_id      = aws_vpc.main.id
 
   ingress {
@@ -94,6 +95,14 @@ resource "aws_security_group" "nat" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [var.vpc_cidr]
+  }
+
+  ingress {
+    description = "SSH jump host"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.admin_ssh_cidr]
   }
 
   egress {

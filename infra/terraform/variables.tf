@@ -59,8 +59,9 @@ variable "db_data_volume_size" {
 }
 
 variable "key_name" {
-  description = "EC2 key pair name for SSH access"
+  description = "EC2 key pair name for SSH access (created by keypair.tf from fitlyfe-key.pub)"
   type        = string
+  default     = "fitlyfe-key"
 }
 
 variable "admin_ssh_cidr" {
