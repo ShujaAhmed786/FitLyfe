@@ -1,1 +1,237 @@
-77u/IyBGaXQgTHlmZSB8IFNtYXJ0IENhbG9yaWUgJiBOdXRyaXRpb24gVHJhY2tlciDDsMW4wqXigJTDsMW44oCcxaAKCioqRml0IEx5ZmUqKiBpcyBhIGZlYXR1cmUtcmljaCwgcHJpdmFjeS1mb2N1c2VkIG1vYmlsZSBhcHBsaWNhdGlvbiBidWlsdCB3aXRoICoqRmx1dHRlcioqIGRlc2lnbmVkIHRvIG1ha2UgY2Fsb3JpZSB0cmFja2luZywgbWVhbCBwbGFubmluZywgYW5kIGhlYWx0aCBtb25pdG9yaW5nIGVmZm9ydGxlc3MsIGVuZ2FnaW5nLCBhbmQgbGlnaHRuaW5nLWZhc3QuIAoKV2hldGhlciB5b3VyIGdvYWwgaXMgdG8gbG9zZSB3ZWlnaHQsIGJ1aWxkIG11c2NsZSwgb3IgbWFpbnRhaW4gYSBiYWxhbmNlZCBsaWZlc3R5bGUsIEZpdCBMeWZlIHByb3ZpZGVzIGFsbCB0aGUgdG9vbHMgeW91IG5lZWQgcmlnaHQgb24geW91ciBkZXZpY2UuCgotLS0KCiMjIEtleSBGZWF0dXJlcwoKKiAqKkNhbG9yaWUgVHJhY2tlciAmIEZvb2QgTG9nOioqIEVmZm9ydGxlc3NseSBsb2cgZGFpbHkgbWVhbHMsIHNuYWNrcywgYW5kIGRyaW5rcyB3aXRoIGR5bmFtaWMgc21hcnQgZ3JvdXAgZW1vamlzIChhdXRvbWF0aWNhbGx5IGFkYXB0aW5nIGZvciBCcmVha2Zhc3QsIEx1bmNoLCBEaW5uZXIsIFByb3RlaW4sIGFuZCBEcmlua3MpIGFjcm9zcyB5b3VyIGxvZ3MgYW5kIHNjcmVlbnMuCiogKipFeHRlbnNpdmUgRm9vZCBMaWJyYXJ5OioqIEJyb3dzZSBhbmQgc2VhcmNoIGEgcm9idXN0IGRhdGFiYXNlIG9mIGZvb2QgaXRlbXMgcG93ZXJlZCBieSB0aGUgVVNEQSBBUEkgdG8gcXVpY2tseSBmaW5kIG51dHJpdGlvbmFsIGJyZWFrZG93bnMgYW5kIGFkZCB5b3VyIGZhdm9yaXRlIG1lYWxzLgoqICoqTWFjcm8gQ291bnRlcjoqKiBTZWFtbGVzc2x5IG1vbml0b3IgcHJvdGVpbnMsIGNhcmJvaHlkcmF0ZXMsIGFuZCBmYXRzIHRvIHN0YXkgcHJlY2lzZWx5IG9uIHRhcmdldCB3aXRoIHlvdXIgaGVhbHRoIGFuZCBmaXRuZXNzIGdvYWxzLgoqICoqR2FtaWZpZWQgUmFua2luZyBTeXN0ZW06KiogU3RheSBtb3RpdmF0ZWQgdGhyb3VnaG91dCB5b3VyIGhlYWx0aCBqb3VybmV5IGJ5IHRyYWNraW5nIHlvdXIgcHJvZ3Jlc3MgYW5kIGxldmVsaW5nIHVwIHRocm91Z2ggYW4gZW5nYWdpbmcgcmFuayBzdHJ1Y3R1cmUuCiogKipEYWlseSBRdWljayBUaXBzOioqIEFjY2VzcyBiaXRlLXNpemVkLCBhY3Rpb25hYmxlIGhlYWx0aCwgbnV0cml0aW9uLCBhbmQgd2VsbG5lc3MgdGlwcyByaWdodCB3aGVuIHlvdSBuZWVkIHRoZW0gdG8gYnVpbGQgc3VzdGFpbmFibGUgaGFiaXRzLgoqICoqUGVyc2lzdGVudCBVbmRvICYgTG9jYWwgQmFja3VwOioqIFNhZmVndWFyZCB5b3VyIGRhdGEgd2l0aCBsb2NhbCBzdG9yYWdlIGhhbmRsaW5nIGFuZCBhIHJlbGlhYmxlIDItaG91ciByZXNldCAidW5kbyIgd2luZG93IHRoYXQgc3Vydml2ZXMgYXBwIHJlc3RhcnRzLgoqICoqQnVpbHQtaW4gRmVlZGJhY2sgTWVjaGFuaXNtOioqIEVhc2lseSBzdWJtaXQgaW4tYXBwIGZlZWRiYWNrIHRvIGhlbHAgY29udGludW91c2x5IGltcHJvdmUgdGhlIGFwcCBleHBlcmllbmNlLgoqICoqTG9jYWwgUHJpdmFjeSBGaXJzdDoqKiBBbGwgcGVyc29uYWwgaGVhbHRoIGxvZ3MsIGN1c3RvbSBtZWFsIGxpc3RzLCBhbmQgdXNlciBkYXRhIHJlbWFpbiBzdG9yZWQgc2VjdXJlbHkgcmlnaHQgb24geW91ciBkZXZpY2UuCgotLS0KCiMjIFRlY2ggU3RhY2sgJiBBcmNoaXRlY3R1cmUKCiogKipGcmFtZXdvcms6KiogRmx1dHRlciAmIERhcnQKKiAqKkRhdGEgTWFuYWdlbWVudDoqKiBMb2NhbCBzdG9yYWdlIGhhbmRsaW5nIHdpdGggcm9idXN0IHN0YXRlIG1hbmFnZW1lbnQgYW5kIGJhY2t1cCBwcm90b2NvbHMKKiAqKkFQSSBJbnRlZ3JhdGlvbjoqKiBVU0RBIEFQSSBpbmplY3RlZCBzZWN1cmVseSBkdXJpbmcgYnVpbGRzIHZpYSBgLS1kYXJ0LWRlZmluZWAKKiAqKlVJL1VYOioqIENsZWFuLCBkaXN0cmFjdGlvbi1mcmVlIGRlc2lnbiB3aXRoIHJlc3BvbnNpdmUgbGF5b3V0cyBhbmQgZHluYW1pYyB2aXN1YWwgaW5kaWNhdG9ycwoKLS0tCgojIyBHZXR0aW5nIFN0YXJ0ZWQgKERldmVsb3BtZW50IFNldHVwKQoKVG8gcnVuIHRoaXMgcHJvamVjdCBsb2NhbGx5LCBtYWtlIHN1cmUgeW91IGhhdmUgdGhlIFtGbHV0dGVyIFNES10oaHR0cHM6Ly9kb2NzLmZsdXR0ZXIuZGV2L2dldC1zdGFydGVkL2luc3RhbGwpIGluc3RhbGxlZC4KCjEuICoqQ2xvbmUgdGhlIHJlcG9zaXRvcnk6KioKICAgICAgIGBgYGJhc2gKICAgICBnaXQgY2xvbmUgW2h0dHBzOi8vZ2l0aHViLmNvbS95b3VyLXVzZXJuYW1lL2ZpdC1seWZlLmdpdF0oaHR0cHM6Ly9naXRodWIuY29tL3lvdXItdXNlcm5hbWUvZml0LWx5ZmUuZ2l0KQogICAgIGNkIGZpdC1seWZlCiAgICAgUnVuIHRoZSBhcHAgKGluamVjdGluZyB5b3VyIFVTREEgQVBJIGtleSk6CiAgICAgZmx1dHRlciBydW4gLS1kYXJ0LWRlZmluZT1VU0RBX0FQSV9LRVk9eW91cl9hY3R1YWxfYXBpX2tleV9oZXJlCiAgIAozLiBJbnN0YWxsIGRlcGVuZGVuY2llczoKICAgICBmbHV0dGVyIHB1YiBnZXQKCjQuIEJ1aWxkICYgUmVsZWFzZQogICAgIFRvIGdlbmVyYXRlIGFuIG9wdGltaXplZCBBbmRyb2lkIEFwcCBCdW5kbGUgKC5hYWIpIGZvciB0ZXN0aW5nIG9yIGRlcGxveW1lbnQ6CiAgICAgZmx1dHRlciBidWlsZCBhcHBidW5kbGUgLS1kYXJ0LWRlZmluZT1VU0RBX0FQSV9LRVk9eW91cl9hY3R1YWxfYXBpX2tleV9oZXJlCgotLS0KCiMjIERldk9wcyBEZXBsb3ltZW50CgpUaGlzIHByb2plY3QgaXMgZGVwbG95ZWQgb24gQVdTIHdpdGggYSBmdWxsIENJL0NEIHBpcGVsaW5lLgoKIyMjIEFyY2hpdGVjdHVyZQoKIVtGaXRMeWZlIERlcGxveW1lbnQgRmxvd10oZG9jcy9zY3JlZW5zaG90cy9maXRseWZlLWRlcGxveW1lbnQtZmxvdy5wbmcpCgojIyMgQXBwIFNjcmVlbnNob3RzCgojIyMgQWRkIE1lYWwKPGltZyBzcmM9ImRvY3Mvc2NyZWVuc2hvdHMvMDItYWRkLW1lYWwtZW5oYW5jZWQuanBnIiB3aWR0aD0iMzAwIiBhbHQ9IkFkZCBNZWFsIj4KCiMjIyBNeSBNZWFscwo8aW1nIHNyYz0iZG9jcy9zY3JlZW5zaG90cy8wMy1tZWFscy1saXN0LWVuaGFuY2VkLmpwZyIgd2lkdGg9IjMwMCIgYWx0PSJNeSBNZWFscyI+CgojIyMgQWN0aXZpdHkgTG9ncwo8aW1nIHNyYz0iZG9jcy9zY3JlZW5zaG90cy8wNC1hY3Rpdml0eS1sb2dzLWVuaGFuY2VkLmpwZyIgd2lkdGg9IjMwMCIgYWx0PSJBY3Rpdml0eSBMb2dzIj4KCiMjIyBDSS9DRCBQaXBlbGluZQoKR2l0SHViIEFjdGlvbnMgYnVpbGRzIHRoZSBEb2NrZXIgaW1hZ2UsIHNjYW5zIGl0IHdpdGggVHJpdnksIGFuZCBwdXNoZXMgdG8gR0hDUi4gQXJnb0NEIHN5bmNzIHRoZSBtYW5pZmVzdHMgdG8gdGhlIEszcyBjbHVzdGVyLgoKIVtDSSBSdW5zXShkb2NzL3NjcmVlbnNob3RzL2NpLXJ1bnMtbGlzdC5wbmcpCgohW0NJIEpvYiBEZXRhaWxzXShkb2NzL3NjcmVlbnNob3RzL2NpLWpvYi1kZXRhaWxzLnBuZykKCiMjIyBBcmdvQ0QgR2l0T3BzCgpBcmdvQ0Qgc3luY3MgdGhlIEt1YmVybmV0ZXMgbWFuaWZlc3RzIGZyb20gR2l0SHViIHRvIHRoZSBLM3MgY2x1c3RlciBhdXRvbWF0aWNhbGx5IG9uIGV2ZXJ5IHB1c2guCgohW0FyZ29DRCBEYXNoYm9hcmRdKGRvY3Mvc2NyZWVuc2hvdHMvYXJnb2NkLWRhc2hib2FyZC5wbmcpCgojIyMgSW5mcmFzdHJ1Y3R1cmUKCi0gKipDbG91ZDoqKiBBV1MgKHVzLWVhc3QtMSkKLSAqKkt1YmVybmV0ZXM6KiogSzNzIG9uIEVDMiAoQVJNNjQgR3Jhdml0b24pCi0gKipEYXRhYmFzZToqKiBQb3N0Z3JlU1FMIDE0ICsgUmVkaXMKLSAqKkNJL0NEOioqIEdpdEh1YiBBY3Rpb25zICsgQXJnb0NEIEdpdE9wcwotICoqSWFDOioqIFRlcnJhZm9ybQotICoqQWNjZXNzOioqIENsb3VkZmxhcmUgVHVubmVsCgojIyMgQ29zdCBCcmVha2Rvd24KCioqTWVhc3VyZWQgKE9jdCA2LTksIDIwMjYpOiAkMC42NC9kYXkgKH4kMTkvbW9udGgpKioKClJlYWwgQVdTIGJpbGxpbmcgZGF0YSBmcm9tIHRoZSBmaXJzdCAzIGRheXMgb2YgcHJvZHVjdGlvbjoKCnwgRGF0ZSB8IE1vbnRoLXRvLWRhdGUgQmlsbCB8CnwtLS0tLS18LS0tLS0tLS0tLS0tLS0tLS0tLXwKfCBPY3QgNiAoZGVwbG95IGRheSkgfCAkNy4xNSB8CnwgT2N0IDkgfCAkOS4wNyB8CnwgKipEaWZmZXJlbmNlKiogfCAqKiQxLjkyIG92ZXIgMyBkYXlzID0gJDAuNjQvZGF5KiogfAoKVGhlb3JldGljYWwgZXN0aW1hdGUgZm9yIGNvbXBhcmlzb24gKHVzLWVhc3QtMSwgNzMwIGhvdXJzL21vbnRoKToKCnwgQ29zdCBMaW5lIEl0ZW0gfCBSaWdodC1TaXplZCBPbi1EZW1hbmQgfAp8LS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tLS0tLS0tLS0tLS0tLS0tfAp8IEszcyBDbHVzdGVyIENvbXB1dGUgfCAyeCB0NGcuc21hbGwgOiAkMTYuMzUgfAp8IERCIC8gQ2FjaGUgQ29tcHV0ZSB8IDJ4IHQ0Zy5zbWFsbCA6ICQxNi4zNSB8CnwgRWdyZXNzIE5BVCBDb21wdXRlIHwgMXggdDRnLm5hbm8gKGZjay1uYXQpIDogJDMuMDcgfAp8IFB1YmxpYyBJUHY0IEFsbG9jYXRpb24gfCAxeCBFbGFzdGljIElQIDogJDMuNjUgfAp8IEVCUyBEaXNrcyAoZ3AzKSB8IDV4IDE1R0IgKDc1R0IpIDogJDYuMDAgfAp8IEFXUyBTMyBCYWNrdXBzIHwgcGdCYWNrUmVzdCArIFZhbGtleSA6IH4kMC41MCB8CnwgQ2xvdWRmbGFyZSBJbmdyZXNzIHwgWmVyby1UcnVzdCBUdW5uZWwgOiAkMC4wMCB8CnwgQ0kgUnVubmVyIENvbXB1dGUgfCBHaXRIdWIgQWN0aW9ucyBGcmVlIFRpZXIgOiAkMC4wMCB8CnwgKipUb3RhbCBNb250aGx5IFNwZW5kICh0aGVvcmV0aWNhbCkqKiB8ICoqfiQ0NS45MiAvIG1vKiogfAoKKipDb3N0LXNhdmluZyBkZWNpc2lvbnM6KioKLSBBUk02NCBHcmF2aXRvbiAodDRnKSBpbnN0YW5jZXMgaW5zdGVhZCBvZiB4ODYKLSBmY2stbmF0IChzZWxmLW1hbmFnZWQpIGluc3RlYWQgb2YgQVdTIE5BVCBHYXRld2F5Ci0gSzNzIGluc3RlYWQgb2YgRUtTIChubyBjb250cm9sIHBsYW5lIGZlZSkKLSBTZWxmLWhvc3RlZCBQb3N0Z3JlU1FML1JlZGlzIGluc3RlYWQgb2YgUkRTCi0gQ2xvdWRmbGFyZSBUdW5uZWwgaW5zdGVhZCBvZiBBV1MgTG9hZCBCYWxhbmNlcgoKLS0tCgojIyBSdW5uaW5nIGluIFByb2R1Y3Rpb24KCiMjIyBQcmVyZXF1aXNpdGVzCgotIEFXUyBhY2NvdW50IHdpdGggSUFNIGNyZWRlbnRpYWxzCi0gVGVycmFmb3JtID49IDEuMAotIGt1YmVjdGwKLSBHaXRIdWIgYWNjb3VudCAoZm9yIENJL0NEKQoKIyMjIDEuIFByb3Zpc2lvbiBJbmZyYXN0cnVjdHVyZQoKYGBgYmFzaApjZCBpbmZyYS90ZXJyYWZvcm0KdGVycmFmb3JtIGluaXQKdGVycmFmb3JtIGFwcGx5CmBgYAoKVGhpcyBjcmVhdGVzOgotIFZQQyB3aXRoIHB1YmxpYy9wcml2YXRlIHN1Ym5ldHMgYWNyb3NzIDIgQVpzCi0gMnggSzNzIG5vZGVzICh0NGcuc21hbGwsIEFSTTY0KQotIDJ4IERhdGFiYXNlIG5vZGVzICh0NGcuc21hbGwsIFBvc3RncmVTUUwgKyBSZWRpcykKLSBOQVQgaW5zdGFuY2UgKGZjay1uYXQpCi0gUzMgYmFja3VwIGJ1Y2tldAotIFNlY3VyaXR5IGdyb3VwcyBhbmQgSUFNIHJvbGVzCgojIyMgMi4gQ29uZmlndXJlIERhdGFiYXNlCgpTU0ggaW50byB0aGUgcHJpbWFyeSBEQiBub2RlIGFuZCBydW46CgpgYGBiYXNoCnN1ZG8gLXUgcG9zdGdyZXMgcHNxbApDUkVBVEUgVVNFUiBmaXRseWZlIFdJVEggUEFTU1dPUkQgJ3lvdXItc2VjdXJlLXBhc3N3b3JkJzsKQ1JFQVRFIERBVEFCQVNFIGZpdGx5ZmUgT1dORVIgZml0bHlmZTsKYGBgCgpVcGRhdGUgYHBvc3RncmVzcWwuY29uZmA6CmBgYApsaXN0ZW5fYWRkcmVzc2VzID0gJ3lvdXItZGItcHJpdmF0ZS1pcCcKYGBgCgpBZGQgdG8gYHBnX2hiYS5jb25mYDoKYGBgCmhvc3QgYWxsIGFsbCAxMC4wLjAuMC8xNiBtZDUKYGBgCgpSZXN0YXJ0IFBvc3RncmVTUUw6CmBgYGJhc2gKc3VkbyBzeXN0ZW1jdGwgcmVzdGFydCBwb3N0Z3Jlc3FsCmBgYAoKIyMjIDMuIENyZWF0ZSBLdWJlcm5ldGVzIFNlY3JldAoKYGBgYmFzaAprdWJlY3RsIGNyZWF0ZSBuYW1lc3BhY2UgZml0bHlmZQprdWJlY3RsIGNyZWF0ZSBzZWNyZXQgZ2VuZXJpYyBmaXRseWZlLWRiIC1uIGZpdGx5ZmUgXAogIC0tZnJvbS1saXRlcmFsPWhvc3Q9MTAuMC4xMS4yMCBcCiAgLS1mcm9tLWxpdGVyYWw9cG9ydD01NDMyIFwKICAtLWZyb20tbGl0ZXJhbD1kYXRhYmFzZT1maXRseWZlIFwKICAtLWZyb20tbGl0ZXJhbD11c2VybmFtZT1maXRseWZlIFwKICAtLWZyb20tbGl0ZXJhbD1wYXNzd29yZD0neW91ci1zZWN1cmUtcGFzc3dvcmQnCmBgYAoKIyMjIDQuIEluc3RhbGwgQXJnb0NECgpgYGBiYXNoCmt1YmVjdGwgY3JlYXRlIG5hbWVzcGFjZSBhcmdvY2QKa3ViZWN0bCBhcHBseSAtbiBhcmdvY2QgLWYgaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2FyZ29wcm9qL2FyZ28tY2Qvc3RhYmxlL21hbmlmZXN0cy9pbnN0YWxsLnlhbWwKYGBgCgojIyMgNS4gRGVwbG95IHZpYSBBcmdvQ0QKCkFwcGx5IHRoZSBBcmdvQ0QgYXBwbGljYXRpb24gbWFuaWZlc3Q6CgpgYGBiYXNoCmt1YmVjdGwgYXBwbHkgLWYgYXJnb2NkL2FwcC55YW1sCmBgYAoKQXJnb0NEIHdpbGwgYXV0b21hdGljYWxseSBzeW5jIHRoZSBLdWJlcm5ldGVzIG1hbmlmZXN0cyBmcm9tIHRoZSBgazhzL2AgZGlyZWN0b3J5LgoKIyMjIDYuIENJL0NEIFBpcGVsaW5lCgpQdXNoIHRvIGBtYWluYCBicmFuY2ggdG8gdHJpZ2dlciBHaXRIdWIgQWN0aW9uczoKMS4gQnVpbGRzIEFSTTY0IERvY2tlciBpbWFnZQoyLiBTY2FucyB3aXRoIFRyaXZ5IGZvciB2dWxuZXJhYmlsaXRpZXMKMy4gUHVzaGVzIHRvIEdpdEh1YiBDb250YWluZXIgUmVnaXN0cnkKNC4gQXJnb0NEIGRldGVjdHMgbmV3IGltYWdlIGFuZCBkZXBsb3lzCgojIyMgNy4gRXhwb3NlIHZpYSBDbG91ZGZsYXJlIFR1bm5lbAoKYGBgYmFzaAprdWJlY3RsIGFwcGx5IC1mIGs4cy9jbG91ZGZsYXJlZC55YW1sCmBgYAoKVGhpcyBjcmVhdGVzIGEgc2VjdXJlIHR1bm5lbCBmb3IgcHVibGljIGFjY2VzcyB3aXRob3V0IGEgbG9hZCBiYWxhbmNlci4KCiMjIyBBcmNoaXRlY3R1cmUgU3VtbWFyeQoKYGBgCkdpdEh1YiDDouKAoOKAmSBBY3Rpb25zIChidWlsZC9zY2FuL3B1c2gpIMOi4oCg4oCZIEdIQ1IKICAgw6LigKDigJwKQXJnb0NEIMOi4oCg4oCZIEszcyBDbHVzdGVyICgyIEFacykKICAgw6LigKDigJwKaW5ncmVzcy1uZ2lueCDDouKAoOKAmSBDbG91ZGZsYXJlIFR1bm5lbCDDouKAoOKAmSBJbnRlcm5ldAogICDDouKAoOKAnApQb3N0Z3JlU1FMICsgUmVkaXMgKDIgbm9kZXMsIFMzIGJhY2t1cHMpCmBgYAoKIyMjIENvc3QKCioqJDAuNjQvZGF5IG1lYXN1cmVkIG9uIEFXUyoqICh+JDE5L21vbnRoIHByb2plY3RlZCkuIFNlZSBDb3N0IEJyZWFrZG93biBzZWN0aW9uIGFib3ZlIGZvciBiaWxsaW5nIGV2aWRlbmNlLg==
+﻿# Fit Lyfe | Smart Calorie & Nutrition Tracker ðŸ¥—ðŸ“Š
+
+**Fit Lyfe** is a feature-rich, privacy-focused mobile application built with **Flutter** designed to make calorie tracking, meal planning, and health monitoring effortless, engaging, and lightning-fast. 
+
+Whether your goal is to lose weight, build muscle, or maintain a balanced lifestyle, Fit Lyfe provides all the tools you need right on your device.
+
+---
+
+## Key Features
+
+* **Calorie Tracker & Food Log:** Effortlessly log daily meals, snacks, and drinks with dynamic smart group emojis (automatically adapting for Breakfast, Lunch, Dinner, Protein, and Drinks) across your logs and screens.
+* **Extensive Food Library:** Browse and search a robust database of food items powered by the USDA API to quickly find nutritional breakdowns and add your favorite meals.
+* **Macro Counter:** Seamlessly monitor proteins, carbohydrates, and fats to stay precisely on target with your health and fitness goals.
+* **Gamified Ranking System:** Stay motivated throughout your health journey by tracking your progress and leveling up through an engaging rank structure.
+* **Daily Quick Tips:** Access bite-sized, actionable health, nutrition, and wellness tips right when you need them to build sustainable habits.
+* **Persistent Undo & Local Backup:** Safeguard your data with local storage handling and a reliable 2-hour reset "undo" window that survives app restarts.
+* **Built-in Feedback Mechanism:** Easily submit in-app feedback to help continuously improve the app experience.
+* **Local Privacy First:** All personal health logs, custom meal lists, and user data remain stored securely right on your device.
+
+---
+
+## Tech Stack & Architecture
+
+* **Framework:** Flutter & Dart
+* **Data Management:** Local storage handling with robust state management and backup protocols
+* **API Integration:** USDA API injected securely during builds via `--dart-define`
+* **UI/UX:** Clean, distraction-free design with responsive layouts and dynamic visual indicators
+
+---
+
+## Getting Started (Development Setup)
+
+To run this project locally, make sure you have the [Flutter SDK](https://docs.flutter.dev/get-started/install) installed.
+
+1. **Clone the repository:**
+       ```bash
+     git clone [https://github.com/your-username/fit-lyfe.git](https://github.com/your-username/fit-lyfe.git)
+     cd fit-lyfe
+     Run the app (injecting your USDA API key):
+     flutter run --dart-define=USDA_API_KEY=your_actual_api_key_here
+   
+3. Install dependencies:
+     flutter pub get
+
+4. Build & Release
+     To generate an optimized Android App Bundle (.aab) for testing or deployment:
+     flutter build appbundle --dart-define=USDA_API_KEY=your_actual_api_key_here
+
+---
+
+## DevOps Deployment
+
+This project is deployed on AWS with a full CI/CD pipeline.
+
+### Architecture
+
+![FitLyfe Deployment Flow](docs/screenshots/fitlyfe-deployment-flow.png)
+
+### App Screenshots
+
+### Add Meal
+<img src="docs/screenshots/02-add-meal-enhanced.jpg" width="300" alt="Add Meal">
+
+### My Meals
+<img src="docs/screenshots/03-meals-list-enhanced.jpg" width="300" alt="My Meals">
+
+### Activity Logs
+<img src="docs/screenshots/04-activity-logs-enhanced.jpg" width="300" alt="Activity Logs">
+
+### CI/CD Pipeline
+
+GitHub Actions builds the Docker image, scans it with Trivy, and pushes to GHCR. ArgoCD syncs the manifests to the K3s cluster.
+
+![CI Runs](docs/screenshots/ci-runs-list.png)
+
+![CI Job Details](docs/screenshots/ci-job-details.png)
+
+### ArgoCD GitOps
+
+ArgoCD syncs the Kubernetes manifests from GitHub to the K3s cluster automatically on every push.
+
+![ArgoCD Dashboard](docs/screenshots/argocd-dashboard.png)
+
+### Infrastructure
+
+- **Cloud:** AWS (us-east-1)
+- **Kubernetes:** K3s on EC2 (ARM64 Graviton)
+- **Database:** PostgreSQL 14 + Redis
+- **CI/CD:** GitHub Actions + ArgoCD GitOps
+- **IaC:** Terraform
+- **Access:** Cloudflare Tunnel
+
+### Cost Breakdown
+
+**Measured (Oct 6-9, 2026): $0.64/day (~$19/month)**
+
+Real AWS billing data from the first 3 days of production:
+
+| Date | Month-to-date Bill |
+|------|-------------------|
+| Oct 6 (deploy day) | $7.15 |
+| Oct 9 | $9.07 |
+| **Difference** | **$1.92 over 3 days = $0.64/day** |
+
+Theoretical estimate for comparison (us-east-1, 730 hours/month):
+
+| Cost Line Item | Right-Sized On-Demand |
+|----------------|----------------------|
+| K3s Cluster Compute | 2x t4g.small : $16.35 |
+| DB / Cache Compute | 2x t4g.small : $16.35 |
+| Egress NAT Compute | 1x t4g.nano (fck-nat) : $3.07 |
+| Public IPv4 Allocation | 1x Elastic IP : $3.65 |
+| EBS Disks (gp3) | 5x 15GB (75GB) : $6.00 |
+| AWS S3 Backups | pgBackRest + Valkey : ~$0.50 |
+| Cloudflare Ingress | Zero-Trust Tunnel : $0.00 |
+| CI Runner Compute | GitHub Actions Free Tier : $0.00 |
+| **Total Monthly Spend (theoretical)** | **~$45.92 / mo** |
+
+**Cost-saving decisions:**
+- ARM64 Graviton (t4g) instances instead of x86
+- fck-nat (self-managed) instead of AWS NAT Gateway
+- K3s instead of EKS (no control plane fee)
+- Self-hosted PostgreSQL/Redis instead of RDS
+- Cloudflare Tunnel instead of AWS Load Balancer
+
+---
+
+## Running in Production
+
+### Prerequisites
+
+- AWS account with IAM credentials
+- Terraform >= 1.0
+- kubectl
+- GitHub account (for CI/CD)
+
+### 1. Provision Infrastructure
+
+```bash
+cd infra/terraform
+terraform init
+terraform apply
+```
+
+This creates:
+- VPC with public/private subnets across 2 AZs
+- 2x K3s nodes (t4g.small, ARM64)
+- 2x Database nodes (t4g.small, PostgreSQL + Redis)
+- NAT instance (fck-nat)
+- S3 backup bucket
+- Security groups and IAM roles
+
+### 2. Configure Database
+
+SSH into the primary DB node and run:
+
+```bash
+sudo -u postgres psql
+CREATE USER fitlyfe WITH PASSWORD 'your-secure-password';
+CREATE DATABASE fitlyfe OWNER fitlyfe;
+```
+
+Update `postgresql.conf`:
+```
+listen_addresses = 'your-db-private-ip'
+```
+
+Add to `pg_hba.conf`:
+```
+host all all 10.0.0.0/16 md5
+```
+
+Restart PostgreSQL:
+```bash
+sudo systemctl restart postgresql
+```
+
+### 3. Create Kubernetes Secret
+
+```bash
+kubectl create namespace fitlyfe
+kubectl create secret generic fitlyfe-db -n fitlyfe \
+  --from-literal=host=10.0.11.20 \
+  --from-literal=port=5432 \
+  --from-literal=database=fitlyfe \
+  --from-literal=username=fitlyfe \
+  --from-literal=password='your-secure-password'
+```
+
+### 4. Install ArgoCD
+
+```bash
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+### 5. Deploy via ArgoCD
+
+Apply the ArgoCD application manifest:
+
+```bash
+kubectl apply -f argocd/app.yaml
+```
+
+ArgoCD will automatically sync the Kubernetes manifests from the `k8s/` directory.
+
+### 6. CI/CD Pipeline
+
+Push to `main` branch to trigger GitHub Actions:
+1. Builds ARM64 Docker image
+2. Scans with Trivy for vulnerabilities
+3. Pushes to GitHub Container Registry
+4. ArgoCD detects new image and deploys
+
+### 7. Expose via Cloudflare Tunnel
+
+```bash
+kubectl apply -f k8s/cloudflared.yaml
+```
+
+This creates a secure tunnel for public access without a load balancer.
+
+### Architecture Summary
+
+```
+GitHub â†’ Actions (build/scan/push) â†’ GHCR
+   â†“
+ArgoCD â†’ K3s Cluster (2 AZs)
+   â†“
+ingress-nginx â†’ Cloudflare Tunnel â†’ Internet
+   â†“
+PostgreSQL + Redis (2 nodes, S3 backups)
+```
+
+### Cost
+
+**$0.64/day measured on AWS** (~$19/month projected). See Cost Breakdown section above for billing evidence.
