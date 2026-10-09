@@ -1,1 +1,26 @@
-aW1wb3J0IGh0dHAgZnJvbSAnazYvaHR0cCc7CmltcG9ydCB7IGNoZWNrLCBzbGVlcCB9IGZyb20gJ2s2JzsKZXhwb3J0IGNvbnN0IG9wdGlvbnMgPSB7CiAgc3RhZ2VzOiBbCiAgICB7IGR1cmF0aW9uOiAnMW0nLCB0YXJnZXQ6IDUwIH0sCiAgICB7IGR1cmF0aW9uOiAnMm0nLCB0YXJnZXQ6IDEwMCB9LAogICAgeyBkdXJhdGlvbjogJzJtJywgdGFyZ2V0OiAyMDAgfSwKICAgIHsgZHVyYXRpb246ICcybScsIHRhcmdldDogMzAwIH0sCiAgICB7IGR1cmF0aW9uOiAnMW0nLCB0YXJnZXQ6IDAgfSwKICBdLAogIHRocmVzaG9sZHM6IHsKICAgIGh0dHBfcmVxX2ZhaWxlZDogWydyYXRlPDAuMDUnXSwKICB9LAp9OwpleHBvcnQgZGVmYXVsdCBmdW5jdGlvbiAoKSB7CiAgaWYgKE1hdGgucmFuZG9tKCkgPCAwLjcpIHsKICAgIGNvbnN0IHJlcyA9IGh0dHAuZ2V0KCdodHRwOi8vMTAuNDMuOTcuMjUzL2hlYWx0aHonKTsKICAgIGNoZWNrKHJlcywgeyAnaGVhbHRoeiAyMDAnOiAocikgPT4gci5zdGF0dXMgPT09IDIwMCB9KTsKICB9IGVsc2UgewogICAgY29uc3QgcGF5bG9hZCA9IEpTT04uc3RyaW5naWZ5KHsgZmVlZGJhY2tUZXh0OiAnbG9hZCB0ZXN0IGZlZWRiYWNrICcgKyBNYXRoLnJhbmRvbSgpIH0pOwogICAgY29uc3QgcGFyYW1zID0geyBoZWFkZXJzOiB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSB9OwogICAgY29uc3QgcmVzID0gaHR0cC5wb3N0KCdodHRwOi8vMTAuNDMuOTcuMjUzL2FwaS9mZWVkYmFjaycsIHBheWxvYWQsIHBhcmFtcyk7CiAgICBjaGVjayhyZXMsIHsgJ2ZlZWRiYWNrIDIwMSc6IChyKSA9PiByLnN0YXR1cyA9PT0gMjAxIH0pOwogIH0KICBzbGVlcCgwLjUpOwp9Cg==
+import http from 'k6/http';
+import { check, sleep } from 'k6';
+export const options = {
+  stages: [
+    { duration: '1m', target: 50 },
+    { duration: '2m', target: 100 },
+    { duration: '2m', target: 200 },
+    { duration: '2m', target: 300 },
+    { duration: '1m', target: 0 },
+  ],
+  thresholds: {
+    http_req_failed: ['rate<0.05'],
+  },
+};
+export default function () {
+  if (Math.random() < 0.7) {
+    const res = http.get('http://10.43.97.253/healthz');
+    check(res, { 'healthz 200': (r) => r.status === 200 });
+  } else {
+    const payload = JSON.stringify({ feedbackText: 'load test feedback ' + Math.random() });
+    const params = { headers: { 'Content-Type': 'application/json' } };
+    const res = http.post('http://10.43.97.253/api/feedback', payload, params);
+    check(res, { 'feedback 201': (r) => r.status === 201 });
+  }
+  sleep(0.5);
+}
