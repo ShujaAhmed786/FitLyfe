@@ -1,1 +1,18 @@
-aW1wb3J0IGh0dHAgZnJvbSAnazYvaHR0cCc7CmltcG9ydCB7IGNoZWNrLCBzbGVlcCB9IGZyb20gJ2s2JzsKZXhwb3J0IGNvbnN0IG9wdGlvbnMgPSB7CiAgc3RhZ2VzOiBbCiAgICB7IGR1cmF0aW9uOiAnMzBzJywgdGFyZ2V0OiAyMCB9LAogICAgeyBkdXJhdGlvbjogJzFtJywgdGFyZ2V0OiAyMCB9LAogICAgeyBkdXJhdGlvbjogJzMwcycsIHRhcmdldDogMCB9LAogIF0sCiAgdGhyZXNob2xkczogewogICAgaHR0cF9yZXFfZmFpbGVkOiBbJ3JhdGU8MC4wMSddLAogICAgaHR0cF9yZXFfZHVyYXRpb246IFsncCg5NSk8NTAwJ10sCiAgfSwKfTsKZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gKCkgewogIGNvbnN0IHJlcyA9IGh0dHAuZ2V0KCdodHRwOi8vMTAuNDMuOTcuMjUzL2hlYWx0aHonKTsKICBjaGVjayhyZXMsIHsgJ3N0YXR1cyBpcyAyMDAnOiAocikgPT4gci5zdGF0dXMgPT09IDIwMCB9KTsKICBzbGVlcCgxKTsKfQo=
+import http from 'k6/http';
+import { check, sleep } from 'k6';
+export const options = {
+  stages: [
+    { duration: '30s', target: 20 },
+    { duration: '1m', target: 20 },
+    { duration: '30s', target: 0 },
+  ],
+  thresholds: {
+    http_req_failed: ['rate<0.01'],
+    http_req_duration: ['p(95)<500'],
+  },
+};
+export default function () {
+  const res = http.get('http://10.43.97.253/healthz');
+  check(res, { 'status is 200': (r) => r.status === 200 });
+  sleep(1);
+}
