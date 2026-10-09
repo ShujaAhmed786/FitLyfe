@@ -1,1 +1,18 @@
-IyBMb2FkIFRlc3RpbmcKCms2IGxvYWQgdGVzdCBzY3JpcHRzIGFuZCByZXBvcnRzIGZvciB0aGUgRml0THlmZSBBUEkuCgojIyBTY3JpcHRzIChgazYvYCkKCi0gYGxvYWQtdGVzdC5qc2AgLSBCYXNlbGluZSBsb2FkOiByYW1wIHRvIDIwIHVzZXJzLCBob2xkIDEgbWluCi0gYHNwaWtlLXRlc3QuanNgIC0gU3Bpa2U6IGp1bXAgZnJvbSAxMCB0byAxMDAgdXNlcnMKLSBgc3RyZXNzLXRlc3QuanNgIC0gU3RyZXNzOiByYW1wIHRvIDMwMCB1c2VycyB3aXRoIDMwJSBEQiB3cml0ZXMKClJlcGxhY2UgYGh0dHA6Ly8xMC40My45Ny4yNTNgIHdpdGggeW91ciBBUEkncyBDbHVzdGVySVAgKGdldCBpdCB2aWEgYGt1YmVjdGwgZ2V0IHN2YyAtbiBmaXRseWZlYCkuCgpSdW4gd2l0aDogYGs2IHJ1biBrNi9sb2FkLXRlc3QuanNgCgojIyBSZXBvcnRzCgotIGBsb2FkLXRlc3QtcmVwb3J0Lm1kYCAtIExvYWQgdGVzdCAoMSw4MTkgcmVxKSArIHNwaWtlIHRlc3QgKDUsMjIyIHJlcSkgcmVzdWx0cwotIGBzdHJlc3MtdGVzdC1yZXBvcnQubWRgIC0gQWR2YW5jZWQgc3RyZXNzIHRlc3QgKDEzMyw3MjIgcmVxLCAzMDAgdXNlcnMpIHJlc3VsdHMK
+# Load Testing
+
+k6 load test scripts and reports for the FitLyfe API.
+
+## Scripts (`k6/`)
+
+- `load-test.js` - Baseline load: ramp to 20 users, hold 1 min
+- `spike-test.js` - Spike: jump from 10 to 100 users
+- `stress-test.js` - Stress: ramp to 300 users with 30% DB writes
+
+Replace `http://10.43.97.253` with your API's ClusterIP (get it via `kubectl get svc -n fitlyfe`).
+
+Run with: `k6 run k6/load-test.js`
+
+## Reports
+
+- `load-test-report.md` - Load test (1,819 req) + spike test (5,222 req) results
+- `stress-test-report.md` - Advanced stress test (133,722 req, 300 users) results
