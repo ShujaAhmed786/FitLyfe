@@ -1,1 +1,69 @@
-IyBGaXRMeWZlIEFQSSBBZHZhbmNlZCBTdHJlc3MgVGVzdCBSZXBvcnQKCioqRGF0ZToqKiAyMDI2LTEwLTA5CioqVG9vbDoqKiBrNiB2MC41NS4wCioqVGFyZ2V0OioqIEZpdEx5ZmUgQVBJIChpbnRlcm5hbCBDbHVzdGVySVAgMTAuNDMuOTcuMjUzKQoqKkVudmlyb25tZW50OioqIEszcyBvbiBBV1MgKDJ4IHQ0Zy5zbWFsbCBBUk02NCBHcmF2aXRvbiwgMiB2Q1BVIC8gMiBHQiBlYWNoKQoKLS0tCgojIyBUZXN0IFByb2ZpbGU6IFN0cmVzcyB0byBCcmVha2luZyBQb2ludAoKUHJvZ3Jlc3NpdmUgcmFtcCBkZXNpZ25lZCB0byBmaW5kIHRoZSBmYWlsdXJlIHRocmVzaG9sZDoKCnwgU3RhZ2UgfCBEdXJhdGlvbiB8IFRhcmdldCBVc2VycyB8CnwtLS18LS0tfC0tLXwKfCBSYW1wIHVwIHwgMSBtaW4gfCA1MCB8CnwgSG9sZCB8IDIgbWluIHwgMTAwIHwKfCBSYW1wIHwgMiBtaW4gfCAyMDAgfAp8IFBlYWsgfCAyIG1pbiB8IDMwMCB8CnwgUmFtcCBkb3duIHwgMSBtaW4gfCAwIHwKCioqVHJhZmZpYyBtaXg6KiogNzAlIEdFVCBgL2hlYWx0aHpgICh3aXRoIERCIHF1ZXJ5KSwgMzAlIFBPU1QgYC9hcGkvZmVlZGJhY2tgIChkYXRhYmFzZSB3cml0ZXMpCgotLS0KCiMjIFJlc3VsdHMKCnwgTWV0cmljIHwgUmVzdWx0IHwKfC0tLXwtLS18CnwgVG90YWwgcmVxdWVzdHMgfCAxMzMsNzIyIHwKfCBGYWlsZWQgcmVxdWVzdHMgfCAwICgwLjAwJSkgfAp8IENoZWNrcyBwYXNzZWQgfCAxMzMsNzIyIC8gMTMzLDcyMiAoMTAwJSkgfAp8IEF2ZyByZXNwb25zZSB0aW1lIHwgMy40NiBtcyB8CnwgTWVkaWFuIHwgMi4zNiBtcyB8CnwgcDkwIHwgNC4xNiBtcyB8CnwgcDk1IHwgNS4zMyBtcyB8CnwgTWF4IHwgNjIwLjQ5IG1zIHwKfCBUaHJvdWdocHV0IHwgMjc4LjYgcmVxL3MgfAp8IFBlYWsgY29uY3VycmVudCB1c2VycyB8IDI5OSB8CgoqKkJvdGggZW5kcG9pbnQgdHlwZXMgcGFzc2VkOioqCi0gYEdFVCAvaGVhbHRoemAgKDIwMCk6IHBhc3NlZAotIGBQT1NUIC9hcGkvZmVlZGJhY2tgICgyMDEsIERCIGluc2VydCk6IHBhc3NlZAoKLS0tCgojIyBBbmFseXNpcwoKKipObyBicmVha2luZyBwb2ludCBmb3VuZC4qKiBUaGUgc3lzdGVtIGhhbmRsZWQgMzAwIGNvbmN1cnJlbnQgdXNlcnMsIGluY2x1ZGluZyAzMCUgZGF0YWJhc2Ugd3JpdGUgdHJhZmZpYywgd2l0aCB6ZXJvIGZhaWxlZCByZXF1ZXN0cy4KCi0gcDk1IHN0YXllZCBhdCA1LjMzIG1zIGV2ZW4gYXQgcGVhayBsb2FkLCB3ZWxsIHdpdGhpbiBhY2NlcHRhYmxlIGJvdW5kcwotIFRoZSBzaW5nbGUgbWF4IHNwaWtlIHRvIDYyMCBtcyB3YXMgYW4gb3V0bGllciBkdXJpbmcgdGhlIHN0ZWVwZXN0IHJhbXA7IHRoZSBzeXN0ZW0gcmVjb3ZlcmVkIGltbWVkaWF0ZWx5Ci0gRGF0YWJhc2Ugd3JpdGVzIChQT1NUIC9hcGkvZmVlZGJhY2sgd2l0aCBQb3N0Z3JlU1FMIElOU0VSVCkgaGVsZCB1cCB1bmRlciBjb25jdXJyZW50IGxvYWQgd2l0aCBubyBlcnJvcnMKLSAyNzggcmVxdWVzdHMvc2Vjb25kIHN1c3RhaW5lZCB0aHJvdWdocHV0IG9uIDIgR0IgQVJNIG5vZGVzCgotLS0KCiMjIEluZnJhc3RydWN0dXJlCgotICoqQVBJOioqIDIgcmVwbGljYXMsIE5vZGUuanMsIDEyOCBNaSByZXF1ZXN0IC8gNTEyIE1pIGxpbWl0IHBlciBwb2QKLSAqKkNsdXN0ZXI6KiogSzNzIG9uIDJ4IHQ0Zy5zbWFsbCAoQVJNNjQgR3Jhdml0b24sIDIgdkNQVSAvIDIgR0IpCi0gKipEYXRhYmFzZToqKiBQb3N0Z3JlU1FMIDE0ICsgUmVkaXMgb24gZGVkaWNhdGVkIHQ0Zy5zbWFsbCBub2RlCi0gKipNZWFzdXJlZCBjb3N0OioqICQwLjY0L2RheSBvbiBBV1MKCi0tLQoKIyMgQ29uY2x1c2lvbgoKQXQgMzAwIGNvbmN1cnJlbnQgdXNlcnMgd2l0aCBtaXhlZCByZWFkL3dyaXRlIHRyYWZmaWMsIHRoaXMgJDAuNjQvZGF5IHNldHVwIHNob3dzIG5vIHNpZ25zIG9mIHN0cmVzcy4gVGhlIGJyZWFraW5nIHBvaW50IGlzIGJleW9uZCAzMDAgY29uY3VycmVudCB1c2Vycy4gRm9yIHRoZSBuZXh0IHJvdW5kLCBwdXNoIHRvIDUwMCsgb3IgYWRkIHN1c3RhaW5lZCBzb2FrIHRlc3RpbmcgdG8gY2hlY2sgZm9yIG1lbW9yeSBsZWFrcyBvdmVyIGhvdXJzLgo=
+# FitLyfe API Advanced Stress Test Report
+
+**Date:** 2026-10-09
+**Tool:** k6 v0.55.0
+**Target:** FitLyfe API (internal ClusterIP 10.43.97.253)
+**Environment:** K3s on AWS (2x t4g.small ARM64 Graviton, 2 vCPU / 2 GB each)
+
+---
+
+## Test Profile: Stress to Breaking Point
+
+Progressive ramp designed to find the failure threshold:
+
+| Stage | Duration | Target Users |
+|---|---|---|
+| Ramp up | 1 min | 50 |
+| Hold | 2 min | 100 |
+| Ramp | 2 min | 200 |
+| Peak | 2 min | 300 |
+| Ramp down | 1 min | 0 |
+
+**Traffic mix:** 70% GET `/healthz` (with DB query), 30% POST `/api/feedback` (database writes)
+
+---
+
+## Results
+
+| Metric | Result |
+|---|---|
+| Total requests | 133,722 |
+| Failed requests | 0 (0.00%) |
+| Checks passed | 133,722 / 133,722 (100%) |
+| Avg response time | 3.46 ms |
+| Median | 2.36 ms |
+| p90 | 4.16 ms |
+| p95 | 5.33 ms |
+| Max | 620.49 ms |
+| Throughput | 278.6 req/s |
+| Peak concurrent users | 299 |
+
+**Both endpoint types passed:**
+- `GET /healthz` (200): passed
+- `POST /api/feedback` (201, DB insert): passed
+
+---
+
+## Analysis
+
+**No breaking point found.** The system handled 300 concurrent users, including 30% database write traffic, with zero failed requests.
+
+- p95 stayed at 5.33 ms even at peak load, well within acceptable bounds
+- The single max spike to 620 ms was an outlier during the steepest ramp; the system recovered immediately
+- Database writes (POST /api/feedback with PostgreSQL INSERT) held up under concurrent load with no errors
+- 278 requests/second sustained throughput on 2 GB ARM nodes
+
+---
+
+## Infrastructure
+
+- **API:** 2 replicas, Node.js, 128 Mi request / 512 Mi limit per pod
+- **Cluster:** K3s on 2x t4g.small (ARM64 Graviton, 2 vCPU / 2 GB)
+- **Database:** PostgreSQL 14 + Redis on dedicated t4g.small node
+- **Measured cost:** $0.64/day on AWS
+
+---
+
+## Conclusion
+
+At 300 concurrent users with mixed read/write traffic, this $0.64/day setup shows no signs of stress. The breaking point is beyond 300 concurrent users. For the next round, push to 500+ or add sustained soak testing to check for memory leaks over hours.
